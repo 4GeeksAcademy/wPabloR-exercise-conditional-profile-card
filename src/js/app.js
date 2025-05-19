@@ -35,7 +35,7 @@ function render(variables = {}) {
           <img src="${variables.avatarURL}" class="photo" />
           <h1>${
             (variables.name && variables.lastName) != null
-              ? variables.name + "" + variables.lastName
+              ? `${variables.name}  ${variables.lastName}`
               : "Insert Full Name"
           }</h1> 
           <h2>${variables.role != null ? variables.role : "Role"} </h2>
