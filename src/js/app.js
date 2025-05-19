@@ -15,7 +15,7 @@ import "../style/index.css";
         linkedin: null,
         instagram: null,
 
-        name: null,
+        name: ,
         lastName: null,
         role: null,
         country: null,
@@ -33,14 +33,32 @@ function render(variables = {}) {
   document.querySelector("#widget_content").innerHTML = `<div class="widget">
             ${cover}
           <img src="${variables.avatarURL}" class="photo" />
-          <h1>Lucy Boilett</h1>
-          <h2>Web Developer</h2>
-          <h3>Miami, USA</h3>
-          <ul class="position-right">
-            <li><a href="https://twitter.com/4geeksacademy"><i class="fab fa-twitter"></i></a></li>
-            <li><a href="https://github.com/4geeksacademy"><i class="fab fa-github"></i></a></li>
-            <li><a href="https://linkedin.com/school/4geeksacademy"><i class="fab fa-linkedin"></i></a></li>
-            <li><a href="https://instagram.com/4geeksacademy"><i class="fab fa-instagram"></i></a></li>
+          <h1>${
+            (variables.name && variables.lastName) != null
+              ? variables.name + "" + variables.lastName
+              : "Insert Full Name"
+          }</h1> 
+          <h2>${variables.role != null ? variables.role : "Role"} </h2>
+          <h3>${variables.city != null ? variables.city : "City"}, ${
+    variables.country != null ? variables.country : "Country"
+  }</h3>
+          <ul class="${
+            variables.socialMediaPosition != "position-rigth"
+              ? variables.socialMediaPosition
+              : "position-left"
+          }"> 
+            <li><a href="https://twitter.com/${
+              variables.twitter != null ? variables.twitter : "yourAccount"
+            }"><i class="fab fa-twitter"></i></a></li>
+            <li><a href="https://github.com/${
+              variables.github != null ? variables.github : "yourAccount"
+            }"><i class="fab fa-github"></i></a></li>
+            <li><a href="https://linkedin.com/school/${
+              variables.linkedin != null ? variables.linkedin : "yourAccount"
+            }"><i class="fab fa-linkedin"></i></a></li>
+            <li><a href="https://instagram.com/${
+              variables.instagram != null ? variables.instagram : "yourAccount"
+            }"><i class="fab fa-instagram"></i></a></li>
           </ul>
         </div>
     `;
